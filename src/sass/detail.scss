@@ -1,0 +1,21 @@
+@import 'header.scss';
+@import 'footer.scss';
+.header{
+	.header_nav{
+		.catList{
+			display:none;
+		}	
+	}
+}
+.detail{
+	position: relative;
+	height:500px;
+	h3{
+		height: 38px;
+		border-bottom:1px solid #F4F;
+		a{
+			display:inline-block;
+			line-height: 38px;
+		}	
+	}
+}

@@ -1,0 +1,286 @@
+@import 'header.scss';
+@import 'footer.scss';
+.header{
+	.header_nav{
+		.colNav{
+			.catList{
+				display:block;
+			}
+		}
+	}
+}
+//轮播图
+.banner{
+	width: 100%;height: 448px; background:#FAECEB;overflow:hidden;
+	position: relative;
+	.carousel{
+		img{
+			display:block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.tuijian{
+		margin-left:210px;
+		height:98px;
+		width: 900px;
+		a{
+			display:inline-block;
+			border:1px solid pink;
+			height: 100%;
+			width: 30%;
+			overflow:hidden;
+			position: relative;
+			&:nth-child(2){
+				margin:0 35px;
+			}
+			img{
+				height: 100%;
+				position: absolute;
+				top: 0;left: 0;
+			}
+		}
+	}
+	.news{
+		position: absolute;
+		top: 0;right: 0;
+		width: 200px;
+		padding:20px 10px;
+		h4{border-bottom:1px dashed red}
+		span{
+			display:inline-block;width: 15px;height: 15px;background:red;color:white;text-align:center;
+			float:left;
+			margin-top:10px;
+		}
+		p{	
+			width: 170px;float:left;padding-top:10px;
+		}
+	}
+}
+//热门店铺
+.hotstore{
+	height: 380px;
+	h4{
+		height: 45px;
+		line-height: 45px;
+	}
+	div{
+		float:left;
+		height: 330px;
+	}
+	.hot1{
+			width: 216px;
+			border:2px solid #F5F5F5;
+		}
+	.hot2{
+		width: 800px;
+		a{
+			display:inline-block;
+			width: 130px;height: 80px;
+			border:1px solid #F5F5F5;
+			position: relative;
+			img{
+				display:block;
+				position: absolute;
+				top:50%;left: 50%;
+				transform:translate(-50%,-50%);
+			}
+		}
+	}
+	.hot3{
+		width: 208px;
+		border:2px solid #F5F5F5;
+	}
+}
+//楼梯效果
+#LoutiNav {
+	width: 32px;
+	position: fixed;
+	top: 220px;
+	left: 25px;
+	border: 1px solid #ddd;
+	display: none;
+	ul{
+		li{
+			width: 32px;
+			height: 32px;
+			border-bottom: 1px dotted #DDDDDD;
+			list-style: none;
+			font-size: 12px;
+			color: #666;
+			text-align: center;
+			line-height: 32px;
+			position: relative;
+			cursor: pointer;
+			span{
+				width: 32px;
+				height: 32px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.active{
+				background: #fff;
+				color: #c00;
+				display: block;
+			}
+		}
+		.last{
+			background: #C00;
+			color: #fff;
+			border-bottom: 1px solid #ddd;
+		}
+		.hover{
+			span{
+				background: #c00;
+				color: #fff;
+				display: block;
+			}
+			.active{
+				background: #c00;
+				color: #fff;
+				display: block;
+			}
+		}
+	}
+}
+#main {
+	width: 100%;
+	margin: 0 auto;
+	.Louti{
+		height: 620px;
+		width: 100%;
+		
+		position: relative;
+		h3{	font-weight: bold;
+			height: 37px;
+			line-height: 37px;
+			border-bottom:1px solid #8DD414;
+		}
+		.tab{
+			position: absolute;
+			top: 12px;right: 30px;
+			display:inline-block;
+			span{
+				padding:11px 25px 8px;
+				margin-left:10px;
+				border:1px solid gray;
+				border-bottom:none;
+			}
+			span.active{
+				color: #8DD414;
+				border:1px solid #8DD414;
+				border-bottom:1px solid white;
+			}			
+		}
+		.louti_l{
+			width: 241px;
+			float:left;
+			.box{
+				width: 241px;height: 241px;background:#8DD414;
+				padding:24px 0 0 20px;
+				span{
+					display:inline-block;width: 60px;height: 60px;
+					border-radius:50%;background:white;
+					margin:0 10px 9px 0;
+					a{
+						display:inline-block;text-align:center;
+						width: 56px;height: 56px;border-radius:50%;
+						line-height: 56px;margin-top:2px;margin-left:2px;
+						text-decoration:none;
+					}
+					a:hover{
+						background:#8DD414;
+						color:white;
+					}
+				}
+
+			}
+		}
+		.louti_m{
+			float:left;
+			width: 820px;
+			.content{
+				display:none;
+				ul{
+					li{
+						width: 205px;height: 280px;border:1px solid #E8E8E8;
+						float:left;
+						position: relative;
+						padding:0 20px;
+						.pic1{
+							height: 190px;
+							line-height: 190px;
+							text-align:center;
+						}
+						p{
+							line-height: 20px;
+						}
+						a{
+							position: absolute;
+							bottom: 20px;
+							right: 20px;
+
+						}
+					}
+				}
+			}
+			
+		}
+		.louti_r{
+			float:left;
+			width: 162px;
+			padding-top:2px;
+			margin-right:30px;
+		}
+	}
+}
+//右固定栏
+#fix_right{
+	position:fixed;
+	right:40px;
+	top:0;
+	width: 30px;
+	height: 100%;
+	background:black;
+	padding-top:150px;
+	li{
+		&:hover{
+			background:#D6362A;
+		}
+		padding:10px 5px;
+		.iconfont{
+			color:white;
+			font-size:20px;
+			
+		}
+		.icon-gouwuche1{
+			// display:block;
+			width: 18px;
+			font-size:16px;
+			
+			// border-top:1px solid white; 
+		}
+		.icon-erweima{
+			position:absolute;
+			bottom:25px;
+			right:5px;
+			&::after{
+				display:none;
+				content:'';
+				width: 158px;
+				height: 210px;
+				background:url(../img/erweima1.jpg);
+				position:absolute;
+				right:20px;
+				top:-175px;
+			}
+		}
+		.icon-tubiao02{
+			position:absolute;
+			bottom:0;
+			right:5px;
+		}
+	}	
+}

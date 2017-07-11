@@ -1,0 +1,39 @@
+.footer { padding-bottom: 30px; background: #FAFAFA; }
+
+.footer .footer_top { height: 400px; background: #333333; }
+
+.footer .footer_top .fuwu { width: 100%; height: 113px; background: #FAFAFA; }
+
+.footer .footer_top p { color: white; margin: 25px; border-bottom: 1px solid gray; padding-bottom: 10px; }
+
+.footer .footer_top p span { display: inline-block; }
+
+.footer .footer_top p span:first-child { height: 43px; width: 41px; background: url(../img/fw.fw.png) 0 0 no-repeat; }
+
+.footer .footer_top p span { font-size: 16px; margin: 0 10px; }
+
+.footer .footer_top p .tel { font-size: 25px; color: red; margin-left: 5px; }
+
+.footer .footer_top ul { float: left; margin-left: 80px; }
+
+.footer .footer_top ul a { color: gray; }
+
+.footer .footer_top ul h3 { font-size: 16px; height: 30px; color: white; position: relative; }
+
+.footer .footer_top ul h3 img { position: absolute; left: -34px; top: -5px; }
+
+.footer .footer_top ul li { height: 30px; }
+
+.footer .footer_bottom { padding-left: 25px; padding-top: 10px; position: relative; }
+
+.footer .footer_bottom p { padding-top: 15px; }
+
+.footer .footer_bottom p:nth-child(2) a { display: inline-block; padding: 0 10px; border-right: 1px solid gray; }
+
+.footer .footer_bottom p:nth-child(2) a:first-child { padding-left: 0; }
+
+.footer .footer_bottom p:nth-child(2) a:last-child { border: none; }
+
+.footer .footer_bottom > img:first-child { margin-top: 15px; }
+
+.footer .footer_bottom > img:last-child { position: absolute; top: 0; right: 20px; }

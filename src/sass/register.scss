@@ -1,0 +1,63 @@
+@import 'header.scss';
+@import 'footer.scss';
+.header{
+	.header_middle{
+		.middle{
+			display:none;
+		}
+		.right{
+			display:none;
+		}
+	}
+	.header_nav{
+		display:none;
+	}
+}
+.footer{
+	.footer_top{
+		display:none;
+	}
+}
+.login{
+	width: 1000px;height: 560px;border:1px solid #F6F6F6;
+	margin:20px auto;
+	&>p{
+		width: 100%;
+		border-bottom:1px solid #F4F4F4;
+		height:35px;line-height: 35px;
+		background:#F6F6F6;
+		position: relative;
+		span{padding:0 15px}
+		a{
+			display:inline-block;
+			height: 36px;
+			line-height: 36px;
+			position: absolute;
+			top: 0;right: 0;padding-right:20px;
+		}
+	}
+	.log{
+		float:left;
+		width: 480px;
+		margin-top:20px;	
+		margin-left:40px;
+		form{	
+			position: relative;
+			.control-label{
+				width: 110px;
+			}
+			.col-sm-10{
+				width: 280px;
+			}
+			.btn{
+				width: 160px;
+			}
+			.error{
+				color:red;
+			}
+		}
+	}
+	.reg{
+		text-align:center;
+	}
+}
