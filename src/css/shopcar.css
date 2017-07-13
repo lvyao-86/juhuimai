@@ -161,54 +161,60 @@ a:hover { text-decoration: underline; }
 
 .footer .footer_bottom > img:last-child { position: absolute; top: 0; right: 20px; }
 
-.header .header_nav .catList { display: none; }
+.header .header_middle .middle { display: none; }
 
-.detail { position: relative; height: 600px; }
+.header .header_middle .right { display: none; }
 
-.detail h3 { height: 38px; border-bottom: 1px solid #F4F; }
+.header .header_nav { display: none; }
 
-.detail h3 a { display: inline-block; line-height: 38px; }
+.shopcar .shoplist table { width: 1200px; margin: 0 auto; text-align: center; border-collapse: collapse; }
 
-.detail .box { margin-left: 50px; width: 350px; height: 350px; border: 1px solid #F4F4F4; float: left; text-align: center; line-height: 350px; }
+.shopcar .shoplist table td:nth-child(1) { width: 5%; }
 
-.detail .explain { float: left; width: 400px; margin-left: 150px; font-size: 14px; padding-top: 20px; position: relative; }
+.shopcar .shoplist table td:nth-child(2) { width: 40%; }
 
-.detail .explain h2 { line-height: 30px; font-size: 18px; }
+.shopcar .shoplist table td:nth-child(3) { width: 15%; }
 
-.detail .explain div { padding: 10px; background: #F5F5F5; }
+.shopcar .shoplist table td:nth-child(4) { width: 15%; }
 
-.detail .explain div i { display: inline-block; }
+.shopcar .shoplist table td:nth-child(5) { width: 15%; }
 
-.detail .explain div .Curprice { font-size: 25px; color: red; }
+.shopcar .shoplist table td:nth-child(6) { width: 10%; }
 
-.detail .explain div .price { font-size: 14px; color: gray; text-decoration: line-through; }
+.shopcar .shoplist table thead { border: 1px solid #D9D9D9; background: #F1F1F1; }
 
-.detail .explain p { padding: 15px; }
+.shopcar .shoplist table thead td { height: 35px; font-size: 14px; padding: 0; }
 
-.detail .explain .jian { display: inline-block; width: 22px; height: 20px; border: 1px solid gray; text-align: center; }
+.shopcar .shoplist table tbody tr { height: 110px; border: 1px solid #F1F1F1; }
 
-.detail .explain .jian:hover { border: 1px solid black; }
+.shopcar .shoplist table tbody .product { padding: 20px; }
 
-.detail .explain .jia { display: inline-block; width: 20px; height: 20px; border: 1px solid gray; text-align: center; }
+.shopcar .shoplist table tbody .product .imgurl { width: 80px; height: 80px; display: block; float: left; }
 
-.detail .explain .jia:hover { border: 1px solid black; }
+.shopcar .shoplist table tbody .product .goods { display: block; width: 350px; padding: 5px 25px; float: left; text-align: left; font-size: 14px; color: #ED415B; }
 
-.detail .explain input { width: 44px; height: 24px; margin: 0 10px; text-align: center; }
+.shopcar .shoplist table tbody .jian { display: inline-block; width: 22px; height: 20px; border: 1px solid gray; text-align: center; }
 
-.detail .explain .buy { padding: 12px 32px; background: #FF6501; color: white; margin-left: 14px; border: 0; }
+.shopcar .shoplist table tbody .jian:hover { border: 1px solid black; }
 
-.detail .explain .car { padding: 12px 32px; background: #E21939; color: white; margin-left: 14px; border: 0; }
+.shopcar .shoplist table tbody .jia { display: inline-block; width: 20px; height: 20px; border: 1px solid gray; text-align: center; }
 
-.detail .explain .collect, .detail .explain .phone_buy { display: inline-block; padding: 10px; border: 1px solid #F4F4F4; margin: 0 10px; font-size: 16px; }
+.shopcar .shoplist table tbody .jia:hover { border: 1px solid black; }
 
-.detail .explain .collect:hover, .detail .explain .phone_buy:hover { color: red; }
+.shopcar .shoplist table tbody .qty { width: 44px; height: 24px; margin: 0 10px; text-align: center; }
 
-.detail .smallImg { width: 450px; height: 100px; border: 1px solid gray; margin-top: 10px; float: left; padding: 2px 0 0 5px; }
+.shopcar .shoplist table tbody .Curprice, .shopcar .shoplist table tbody .subtotal { font-size: 16px; color: red; }
 
-.detail .smallImg img { width: 100px; height: 90px; margin-right: 5px; border: 1px solid gray; }
+.shopcar .shoplist table tbody .clear:hover { text-decoration: underline; }
 
-.detail .smallImg .active { border: 1px solid red; }
+.shopcar .total { width: 1200px; margin: 0 auto; text-align: center; border: 1px solid #F1F1F1; padding: 10px; }
 
-.detail .seller { width: 206px; position: absolute; top: 0; right: 0; }
+.shopcar .total tr { width: 25%; }
 
-.detail_b { margin: 0 auto; width: 850px; }
+.shopcar .total .continue { width: 140px; height: 40px; background: green; color: white; border: none; }
+
+.shopcar .total .settle { width: 140px; height: 40px; background: red; color: white; border: none; }
+
+.shopcar .total .sum { font-size: 18px; color: red; }
+
+.shopcar .total .allclear:hover { text-decoration: underline; }

@@ -33,13 +33,10 @@
 			p{
 				padding:10px 10px ;
 				position: relative;
-				.iconfont{
-					display:inline-block;
-					width: 40px;
-					height: 40px;
+				.buycar{
 					position: absolute;
-					right: 20px;bottom:20px;
-					color:red;
+					bottom: 20px;
+					right: 20px;
 				}
 			}
 			.goodsImg{
@@ -55,6 +52,7 @@
 				border-left:2px solid pink;
 				border-right:2px solid pink;
 			}
+			
 		}
 		
 	}

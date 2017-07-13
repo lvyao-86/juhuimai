@@ -9,7 +9,7 @@
 }
 .detail{
 	position: relative;
-	height:500px;
+	height:600px;
 	h3{
 		height: 38px;
 		border-bottom:1px solid #F4F;
@@ -18,4 +18,115 @@
 			line-height: 38px;
 		}	
 	}
+	.box{
+		margin-left:50px;
+		width: 350px;height: 350px;
+		border:1px solid #F4F4F4;
+		float:left;
+		text-align:center;
+		line-height: 350px;
+	}
+	.explain{
+		float:left;
+		width: 400px;
+		margin-left:150px;
+		font-size:14px;
+		padding-top:20px;
+		position: relative;
+		h2{
+			line-height: 30px;
+			font-size:18px;
+		}
+		div{
+			padding: 10px;
+			background:#F5F5F5;
+			i{
+				display:inline-block;
+			}
+			.Curprice{
+				font-size:25px;
+				color:red;
+			}
+			.price{
+				font-size:14px;
+				color:gray;
+				text-decoration:line-through;
+			}
+		}
+		p{
+			padding:15px;
+		}
+		.jian{
+			display:inline-block;
+			width:22px;height: 20px;
+			border:1px solid gray;
+			text-align:center;
+			&:hover{
+				border:1px solid black;	
+			}
+		}
+		.jia{
+			display:inline-block;
+			width:20px;height: 20px;
+			border:1px solid gray;
+			text-align:center;
+			&:hover{
+				border:1px solid black;	
+			}
+		}
+		input{
+			width: 44px;height: 24px;margin:0 10px;
+			text-align:center;
+		}
+		.buy{
+			padding:12px 32px;
+			background:#FF6501;
+			color:white;
+			margin-left:14px;
+			border:0;
+		}
+		.car{
+			padding:12px 32px;
+			background:#E21939;
+			color:white;
+			margin-left:14px;
+			border:0;
+		}
+		.collect,.phone_buy{
+			display:inline-block;
+			padding:10px;
+			border:1px solid #F4F4F4;
+			margin:0 10px;
+			font-size:16px;
+			&:hover{
+				color:red;
+			}
+		}	
+	}
+	.smallImg{
+		width: 450px;
+		height: 100px;
+		border:1px solid gray;
+		margin-top:10px;
+		float:left;
+		padding:2px 0 0 5px;
+		img{
+			width: 100px;
+			height: 90px;
+			margin-right:5px;
+			border:1px solid gray;
+		}
+		.active{
+			border:1px solid red;
+		}
+	}
+	.seller{
+			width: 206px;
+			position: absolute;
+			top: 0;right: 0;
+		}
+}
+.detail_b{
+	margin:0 auto;
+	width: 850px;
 }

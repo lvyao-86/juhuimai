@@ -1,129 +1,106 @@
 ;(function($){
-	$.fn.gdszoom = function(options){
+	$.fn.gdsZoom = function(options){
 		var defaults = {
-			// 大图区域宽高
-			width:300,
+			width:400,//大图宽度，高度
 			height:300,
-
-			// 大图位置
-			position:'right',
-
-			// 大图与小图的间距
-			gap:15
+			position:'right',//大图显示位置：left,bottom,top,right
+			gap:15//大图与小图的间距
 		}
 
-		// 覆盖默认参数
+		// 扩展默认参数
 		var opt = $.extend({},defaults,options);
 
-		// 遍历jquery对象
-		return this.each(function(){
-			var $small = $(this);
+		this.each(function(){
+			// 给$small添加特定样式
+			var $small = $(this).addClass('gds-zoom');
 
-			// 添加插件样式
-			$small.addClass('gds-zoom');
+			var $smallImg = $small.children('img');
 
-			var $smallImg = $(this).children('img');
-
-			// 生成大图
-			// $smallImg.data('msg',{})
-
-			// 先获取大图的路径
-			var bigUrl = $smallImg.data('big');//$smallImg.attr('data-big')
-			var $big = $('<div/>').addClass('gds-bigzoom');
-			var $bigImg = $('<img/>').attr('src',bigUrl);
-
-			// 计算大图与小图的比率
-			// $bigImg[0].onload = function(){
-				
-			// }
-			
-			// 小图与大图比率
-			var ratio;
-
-			$big.append($bigImg);
-
-			// 把大图写入页面
-			$big.appendTo('.fangdajing');
-
-			// 设定大图区域样式
-			// 大图没写入页面，无法获取宽度
-			$big.css({width:opt.width,height:opt.height});
-
-			if(opt.position === 'right'){
-				$big.css({
-					left:$small.offset().left + $small.outerWidth() + opt.gap,
-					top:$small.offset().top
-				});
-			}else if(opt.position === 'left'){
-				$big.css({
-					left:$small.offset().left - opt.width - opt.gap,
-					top:$small.offset().top
-				})
-			}else if(opt.position === 'bottom'){
-				$big.css({
-					left:$small.offset().left,
-					top:$small.offset().top + $small.outerHeight() + opt.gap
-				})
-			}
 
 			// 生成放大镜
 			var $minzoom = $('<span/>').addClass('minzoom');
 			$minzoom.appendTo($small);
 
-			
 
-			// 鼠标移入显示放大镜/大图
+			// 生成大图
+			var $big = $('<div/>').addClass('gds-bigzoom');
+
+			var $bigImg = $('<img/>').attr('src',$smallImg.data('big'));
+			$bigImg.appendTo($big);
+
+			// 设置大图定位
+			var btop,bleft;
+			if(opt.position === 'right'){
+				btop = $small.offset().top;
+				console.log(btop)
+				bleft = $small.offset().left + $small.outerWidth() + opt.gap;
+			}else if(opt.position === 'bottom'){
+				btop = $small.offset().top + $small.outerHeight() + opt.gap;
+				bleft = $small.offset().left;
+			}else if(opt.position === 'left'){
+				btop = $small.offset().top;
+				bleft = $small.offset().left - opt.width - opt.gap;
+			}else if(opt.position === 'top'){
+				btop = $small.offset().top - opt.height - opt.gap;
+				bleft = $small.offset().left;
+			}
+			$big.css({
+				top:btop,
+				left:bleft,
+				width:opt.width,
+				height:opt.height
+			});
+
+			// 把大图写入页面
+			$big.appendTo('body');
+
+			//大图与小图的比例
+			var ratio;
+
+			// 2、鼠标移入显示大图和放大镜
 			$small.on('mouseenter',function(){
-				// 更新大图url
-				$bigImg.attr('src',$smallImg.attr('data-big'));
-
 				$minzoom.show();
 				$big.show();
-
-				ratio = $smallImg.outerWidth()/$bigImg.outerWidth();
-				// console.log(ratio,$smallImg.outerWidth(),$bigImg.outerWidth());
-				// 设置放大镜样式
-				$minzoom.css({width:opt.width*ratio,height:opt.height*ratio});
-
-				
-			})
-
-			// 鼠标离开隐藏
-			.on('mouseleave',function(){
-				$minzoom.hide();
-				$big.hide();
-			})
-
-			// 鼠标移动
-			.on('mousemove',function(e){
+				ratio = $bigImg.outerWidth()/$small.outerWidth();
+				// console.log(ratio)
+				// console.log(opt.width)
+				// 改变放大镜的大小
+				// 与大图成比例
+				$minzoom.css({
+					width:opt.width/ratio,
+					height:opt.height/ratio
+				});
+			}).on('mousemove',function(e){
+				var left = e.pageX - $small.offset().left - $minzoom.outerWidth()/2;
 				var top = e.pageY - $small.offset().top - $minzoom.outerHeight()/2;
-				var left = e.pageX - $small.offset().left-$minzoom.outerWidth()/2;//clientX
 
-				// 防止移出图片区域
+				// 限制top,left值
 				if(left<0){
 					left = 0;
-				}else if(left > $small.width()-$minzoom.outerWidth()){
-					left = $small.width()-$minzoom.outerWidth()
+				}else if(left>$smallImg.outerWidth()-$minzoom.outerWidth()){
+					left=$smallImg.outerWidth()-$minzoom.outerWidth()
 				}
 
 				if(top<0){
 					top = 0;
-				}else if(top > $small.height()-$minzoom.outerHeight()){
-					top = $small.height()-$minzoom.outerHeight()
+				}else if(top>$smallImg.outerHeight()-$minzoom.outerHeight()){
+					top=$smallImg.outerHeight()-$minzoom.outerHeight()
 				}
 
-				// 放大镜移动
-				$minzoom.css({
-					top:top,
-					left:left
-				});
+				// 定位放大镜位置
+				$minzoom.css({top:top,left:left});
 
-				// 大图移动
+				// 定位大图位置
 				$bigImg.css({
-					top:-top/ratio,
-					left:-left/ratio
-				});
+					left:-left*ratio,
+					top:-top*ratio
+				})
+			}).on('mouseleave',function(){
+				$minzoom.hide();
+				$big.hide();
 			})
 		});
+
+		return this;
 	}
 })(jQuery);
