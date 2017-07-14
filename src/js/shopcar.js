@@ -92,6 +92,7 @@ require(['config'],function(){
 			var idx = $(this).closest('tr').index();
 			goodslist.splice(idx,1);
 			common.setCookie('goodslist',JSON.stringify(goodslist));
+			
 			$(this).closest('tr').remove();
 			sum();
 		}).on('click','.jian',function(){
@@ -102,6 +103,7 @@ require(['config'],function(){
 				goodslist[idx].qty=0;
 			}
 			common.setCookie('goodslist',JSON.stringify(goodslist));
+
 			var Curprice =$tr.find('.Curprice').html();
 			var sub = (Curprice*goodslist[idx].qty).toFixed(2);
 			$tr.find('.qty').val(goodslist[idx].qty);
@@ -112,6 +114,7 @@ require(['config'],function(){
 			var idx = $tr.index();
 			goodslist[idx].qty++;
 			common.setCookie('goodslist',JSON.stringify(goodslist));
+
 			var Curprice =$tr.find('.Curprice').html();
 			var sub = (Curprice*goodslist[idx].qty).toFixed(2);
 			$tr.find('.qty').val(goodslist[idx].qty);

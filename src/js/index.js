@@ -5,6 +5,12 @@ require(['config'],function(){
 		$('<div/>').addClass('header').load('./html/header.html',function(){
 			// 加载完成后写入页面
 			$(this).prependTo('.containter');
+
+			//获取用户
+			var user=location.search.slice(6);
+			console.log(user)
+			$('#USER').html(user);
+
 		});
 		$('<div/>').addClass('footer').load('./html/footer.html',function(){
 			// 加载完成后写入页面
