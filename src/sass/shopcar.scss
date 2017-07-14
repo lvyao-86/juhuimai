@@ -113,7 +113,9 @@
 		border:1px solid #F1F1F1;
 		padding:10px;
 		tr{
-			width: 25%;
+			td{
+				width: 25%;
+			}
 		}
 		.continue{
 			width: 140px;height: 40px;

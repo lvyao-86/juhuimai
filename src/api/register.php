@@ -15,23 +15,17 @@
 	$name = isset($_GET['name']) ? $_GET['name'] : '';
 	$password = isset($_GET['password']) ? $_GET['password'] : '';
 	//先查询库内是否已存在
-	$sql = "select username from user";
-
-	// 查找指定name信息
-	if($name){
-		$sql .= " where username='$name'";
-	}
-
+	$sql = "select name from user where name='$name'";
 	$res = $conn->query($sql);
 	$rows = $res->fetch_all(MYSQLI_ASSOC);
 	if($rows){
-		print_r($rows) ;
+		echo '用户已存在';
 	}else{
 			// md5加密密码
-		// $password = md5($password);
+		$password = md5($password);
 
 		// 添加用户信息
-		$sql = "insert into user(username,password) values('$name','$password')";
+		$sql = "insert into user(name,password) values('$name','$password')";
 
 		// echo $sql;
 
@@ -40,7 +34,7 @@
 
 		//使用查询结果	
 		if($result){
-			echo "数据写入成功";
+			echo "ok";
 		}else{
 			echo "Error:" . $sql . "<br/>" . $conn->error;
 		}

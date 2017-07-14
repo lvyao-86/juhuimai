@@ -13,12 +13,12 @@ require(['config'],function(){
 		// 阅读并同意必须勾选
 		var $checkbox = $(':checkbox');
 		var $btn = $('button');
-		$btn.attr('title','注册前必须同意协议');
-		$checkbox.on('click',function(){
+		$btn.attr('title','注册前必须同意协议');	
+		$checkbox.prop('disabled',false).on('click',function(){
 			if(this.checked){
-				$btn.prop('disabled',false).removeClass('no');
+				$btn.prop('disabled',false);
 			}else{
-				$btn.prop('disabled',true).addClass('no');
+				$btn.prop('disabled',true);
 			}
 		});
 
@@ -74,24 +74,21 @@ require(['config'],function(){
 		
 		// 点击提交传递信息到后台
 		$btn.on('click',function(){
-			console.log(444)
+			
 			var $username = $('#username').val();
 			var $password = $('#password').val();
 			var $repassword = $('#repassword').val();
-			if($password != $repassword){
-				$('#repassword').val('');
-				$('#password').val('');
-				alert('两次密码输入不一致，请重新输入');
 
-			}else if($username == '' || $password == ''){
+			if($username == '' || $password == ''){
 				$checkbox.prop('checked',false);
 				$btn.prop('disabled',true).addClass('no');
 				alert('用户名密码不能为空值');
 			}
 			else{
+				console.log(444)
 				$.ajax({
 					url:'../api/register.php',
-					type:'post',
+					type:'get',
 					data:{
 						name:$username,
 						password:$password
@@ -99,8 +96,8 @@ require(['config'],function(){
 					success:function(res){
 						console.log(res);
 						if(res === 'ok'){
-							alert('恭喜您注册成功，赶紧登陆抢购吧！');
-						}else if(res == '已经存在'){
+							confirm('恭喜您注册成功，赶紧登陆抢购吧！');
+						}else if(res == '用户已存在'){
 							alert('用户名已经存在，请另起一个用户名');
 							$(':input').val('');
 						}

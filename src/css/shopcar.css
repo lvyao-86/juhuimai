@@ -209,7 +209,7 @@ a:hover { text-decoration: underline; }
 
 .shopcar .total { width: 1200px; margin: 0 auto; text-align: center; border: 1px solid #F1F1F1; padding: 10px; }
 
-.shopcar .total tr { width: 25%; }
+.shopcar .total tr td { width: 25%; }
 
 .shopcar .total .continue { width: 140px; height: 40px; background: green; color: white; border: none; }
 

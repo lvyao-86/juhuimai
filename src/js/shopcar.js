@@ -20,9 +20,8 @@ require(['config'],function(){
 		// 把json字符串转换成数组/对象
 		// JSON.parse(json)
 		goodslist = goodslist ? JSON.parse(goodslist) : [];
-		console.log(goodslist);
+		console.log(goodslist);		
 		render();
-
 		var $checkall = $('#checkall');
 		var $check =$('tbody').find(':checkbox');
 		sum();
@@ -30,9 +29,10 @@ require(['config'],function(){
 		function render(){
 			$('tbody')[0].innerHTML=goodslist.map(function(item){
 				var sub =(item.price*item.qty).toFixed(2);
+
 				return ` 
 						<tr>
-							<td><input type="checkbox" checked></td>
+							<td><input type="checkbox"></td>
 							<td class="product">
 								<img class="imgurl" src=${item.imgurl}>
 								<a class="goods" href="">${item.product}</a>
@@ -58,8 +58,8 @@ require(['config'],function(){
 			var sum=0;
 			$subtotal.each(function(idx,item){
 				var $checkbox = $check.eq(idx) 
-				console.log($(item).html());
 				if($checkbox.prop('checked')){
+						console.log($(item).html())
 					sum += Number($(item).html())
 				}
 			})
@@ -67,12 +67,11 @@ require(['config'],function(){
 		}
 	//全选按钮
 		// console.log($check)
+		
 		$checkall.on('click',function(){
 			console.log($check)
 			$check.prop('checked',this.checked)
-
 			sum();
-
 				console.log($check.prop('checked'))
 		});
 		//清空购物车
@@ -82,28 +81,45 @@ require(['config'],function(){
 				cookie();
 				sum();
 			};
+		});
+		//点击每一项商品
+		$('.shoplist tbody').on('click',':checkbox',function(){
+				sum();
 		})
 		
 		//删除单项商品
 		$('.shoplist').on('click','.clear',function(){
 			var idx = $(this).closest('tr').index();
 			goodslist.splice(idx,1);
-			cookie();
+			common.setCookie('goodslist',JSON.stringify(goodslist));
+			$(this).closest('tr').remove();
 			sum();
 		}).on('click','.jian',function(){
-			var idx = $(this).closest('tr').index();
+			$tr =$(this).closest('tr')
+			var idx = $tr.index();
 			goodslist[idx].qty--;
 			if(goodslist[idx].qty<=0){
 				goodslist[idx].qty=0;
 			}
-			cookie();
+			common.setCookie('goodslist',JSON.stringify(goodslist));
+			var Curprice =$tr.find('.Curprice').html();
+			var sub = (Curprice*goodslist[idx].qty).toFixed(2);
+			$tr.find('.qty').val(goodslist[idx].qty);
+			$tr.find('.subtotal').html(sub)
 			sum();
 		}).on('click','.jia',function(){
-			var idx = $(this).closest('tr').index();
+			$tr =$(this).closest('tr')
+			var idx = $tr.index();
 			goodslist[idx].qty++;
-			cookie();
+			common.setCookie('goodslist',JSON.stringify(goodslist));
+			var Curprice =$tr.find('.Curprice').html();
+			var sub = (Curprice*goodslist[idx].qty).toFixed(2);
+			$tr.find('.qty').val(goodslist[idx].qty);
+			$tr.find('.subtotal').html(sub)
 			sum();
 		})
+		
+		
 
 		//继续购物
 		$('.continue').on('click',function(){
