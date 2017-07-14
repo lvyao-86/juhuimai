@@ -20,7 +20,7 @@ require(['config'],function(){
 		// 把json字符串转换成数组/对象
 		// JSON.parse(json)
 		goodslist = goodslist ? JSON.parse(goodslist) : [];
-		console.log(goodslist);		
+		console.log(goodslist);
 		render();
 		var $checkall = $('#checkall');
 		var $check =$('tbody').find(':checkbox');
@@ -54,25 +54,27 @@ require(['config'],function(){
 		};
 		//应付总额
 		function sum(){
-			var $subtotal = $('.subtotal')
+			var $subtotal = $('.subtotal');
 			var sum=0;
 			$subtotal.each(function(idx,item){
 				var $checkbox = $check.eq(idx) 
 				if($checkbox.prop('checked')){
-						console.log($(item).html())
-					sum += Number($(item).html())
+						// console.log($(item).html())
+					sum += Number($(item).html())	
 				}
+				
 			})
+			sum=sum.toFixed(2)	
 			$('.sum').html('￥'+sum);
 		}
 	//全选按钮
 		// console.log($check)
 		
 		$checkall.on('click',function(){
-			console.log($check)
+			// console.log($check)
 			$check.prop('checked',this.checked)
 			sum();
-				console.log($check.prop('checked'))
+				// console.log($check.prop('checked'))
 		});
 		//清空购物车
 		$('.allclear').on('click',function(){
@@ -92,7 +94,6 @@ require(['config'],function(){
 			var idx = $(this).closest('tr').index();
 			goodslist.splice(idx,1);
 			common.setCookie('goodslist',JSON.stringify(goodslist));
-			
 			$(this).closest('tr').remove();
 			sum();
 		}).on('click','.jian',function(){

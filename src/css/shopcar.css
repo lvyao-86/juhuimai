@@ -167,6 +167,8 @@ a:hover { text-decoration: underline; }
 
 .header .header_nav { display: none; }
 
+.shopcar h2 { height: 30px; line-height: 30px; border-bottom: 1px solid #F4F4F4; margin-bottom: 10px; }
+
 .shopcar .shoplist table { width: 1200px; margin: 0 auto; text-align: center; border-collapse: collapse; }
 
 .shopcar .shoplist table td:nth-child(1) { width: 5%; }
